@@ -17,6 +17,7 @@
           <button @click="nextQuestion" class="interactive-btn">Siguiente</button>
         </div>
       </div>
+      <button @click="saveProgress" class="interactive-btn mt-4 w-full">Save Progress</button>
     </div>
     <div class="grid md:grid-cols-2 gap-8 mb-8">
       <div class="card">
@@ -66,6 +67,7 @@
 
 <script>
 import { gsap } from 'gsap';
+import axios from 'axios';
 
 export default {
   name: 'Restaurant',
@@ -122,6 +124,23 @@ export default {
         duration: 0.6,
         ease: 'power2.inOut'
       });
+    },
+    async saveProgress() {
+      try {
+        const response = await axios.post('/api/progress', {
+          section_id: 'restaurant',
+          score: this.currentQuizIndex + 1, // Example score: number of quizzes completed
+          data: {
+            lastQuiz: this.currentQuiz.q,
+            lastAnswer: this.currentQuiz.a,
+          },
+        });
+        console.log('Progress saved:', response.data);
+        alert('Progress saved successfully!');
+      } catch (error) {
+        console.error('Error saving progress:', error);
+        alert('Failed to save progress.');
+      }
     },
   },
   mounted() {

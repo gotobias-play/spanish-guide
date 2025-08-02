@@ -29,12 +29,14 @@
           <button v-for="(verb, key) in verbs" :key="key" @click="selectVerb(key)" :class="{ 'selected': sentence.verb === key }" class="interactive-btn">{{ key }}</button>
         </div>
       </div>
+      <button @click="saveProgress" class="interactive-btn mt-4 w-full">Save Progress</button>
     </div>
   </div>
 </template>
 
 <script>
 import { gsap } from 'gsap';
+import axios from 'axios';
 
 export default {
   name: 'DailyLife',
@@ -103,6 +105,19 @@ export default {
       this.sentence.es_translation = es_translation;
 
       gsap.from(this.$refs.sentenceDisplay, { duration: 0.5, opacity: 0, y: -10 });
+    },
+    async saveProgress() {
+      try {
+        const response = await axios.post('/api/progress', {
+          section_id: 'daily-life',
+          data: this.sentence,
+        });
+        console.log('Progress saved:', response.data);
+        alert('Progress saved successfully!');
+      } catch (error) {
+        console.error('Error saving progress:', error);
+        alert('Failed to save progress.');
+      }
     },
   },
   watch: {

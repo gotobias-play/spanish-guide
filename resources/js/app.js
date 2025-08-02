@@ -9,6 +9,8 @@ import DailyLife from './components/DailyLife.vue';
 import City from './components/City.vue';
 import Restaurant from './components/Restaurant.vue';
 import Questions from './components/Questions.vue';
+import QuizHistory from './components/QuizHistory.vue';
+import AdminPanel from './components/AdminPanel.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -19,6 +21,8 @@ const router = createRouter({
     { path: '/city', component: City },
     { path: '/restaurant', component: Restaurant },
     { path: '/questions', component: Questions },
+    { path: '/quiz-history', component: QuizHistory },
+    { path: '/admin', component: AdminPanel },
   ],
 });
 

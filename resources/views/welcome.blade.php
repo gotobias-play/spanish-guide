@@ -15,6 +15,13 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <script>
+            window.Laravel = {
+                csrfToken: '{{ csrf_token() }}',
+                user: @json(Auth::user())
+            };
+        </script>
     </head>
     <body class="font-sans antialiased">
         <div id="app"></div>
