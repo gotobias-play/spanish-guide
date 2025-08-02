@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .card {
+        @apply bg-white rounded-xl shadow-md p-6;
+    }
+
+    .interactive-btn {
+        @apply px-4 py-2 rounded-lg font-semibold text-gray-800 bg-blue-200 hover:bg-blue-300 transition-all duration-200 ease-in-out transform hover:scale-105;
+    }
+
+    .interactive-btn.selected {
+        @apply bg-blue-600 text-white ring-2 ring-blue-400;
+    }
+
+    .interactive-card {
+        @apply transition-transform duration-200 transform hover:scale-105 hover:shadow-lg cursor-pointer;
+    }
+
+    .pronunciation {
+        @apply text-gray-500 italic text-sm;
+    }
+
+    .translation {
+        @apply text-green-700 font-medium text-sm;
+    }
+
+    .feedback {
+        @apply h-6 font-bold transition-opacity duration-300;
+    }
+
+    .feedback.correct {
+        @apply text-green-600;
+    }
+
+    .feedback.incorrect {
+        @apply text-red-600;
+    }
+
+    .example {
+        @apply border-l-4 border-blue-200 pl-4 py-2 my-2;
+    }
+}
