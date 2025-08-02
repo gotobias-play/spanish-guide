@@ -16,13 +16,34 @@ This project is an interactive English learning application for Spanish speakers
 *   **Main Blade View:** `resources/views/welcome.blade.php` (This is the entry point for the Vue app and contains the `<div id="app"></div>`)
 *   **Main JavaScript File:** `resources/js/app.js` (This file initializes Vue, sets up the router, and mounts the main `App.vue` component.)
 *   **Vue Components:** Located in `resources/js/components/`
-    *   `App.vue`: The root component containing the navigation and router view.
+    *   `App.vue`: The root component containing the navigation and router view, now featuring a dropdown for authenticated users.
     *   `Home.vue`: The welcome page.
     *   `Foundations.vue`: Interactive exercises for "To Be" and "To Have".
     *   `DailyLife.vue`: The sentence builder for the present simple tense.
     *   `City.vue`: The interactive map and preposition exercises.
     *   `Restaurant.vue`: The quantifiers quiz and food vocabulary flip cards.
     *   `Questions.vue`: The interactive "Wh" questions guide.
-    *   `Modal.vue`: A reusable modal component (though it was refactored out of the `Questions` component).
+    *   `QuizHistory.vue`: Displays a user's past quiz attempts and detailed results.
+    *   `AdminPanel.vue`: A basic panel for administrators to view user information.
+    *   `Modal.vue`: A reusable modal component.
 *   **CSS:** `resources/css/app.css` (Contains all the custom Tailwind CSS component classes.)
 *   **Git Repository:** `https://github.com/gotobias-play/spanish-guide.git`
+
+### Backend Enhancements
+
+*   **User Quiz Progress:**
+    *   **Migration:** `create_user_quiz_progress_table` with `user_id`, `section_id`, `score`, and `data` (JSON) fields.
+    *   **Model:** `UserQuizProgress.php`.
+    *   **Controller:** `UserQuizProgressController.php` with `store` (save progress) and `index` (get all progress) methods.
+    *   **API Routes:** `/api/progress` (POST) and `/api/progress` (GET).
+*   **Admin Functionality:**
+    *   **User Model:** Added `is_admin` boolean column.
+    *   **Controller:** `AdminController.php` with `users` method to fetch all users.
+    *   **API Route:** `/api/admin/users` (GET), protected by an `admin` middleware (to be implemented or assumed).
+*   **Authentication:** Laravel Breeze reinstalled with Blade views for login/register. Login redirects to `/`.
+
+### Next Steps / Pending Features
+
+*   Implement the `admin` middleware for the admin API routes.
+*   Further enhance the `QuizHistory.vue` to display quiz details more comprehensively.
+*   Consider adding an overall progress dashboard or learning recommendations.
