@@ -17,7 +17,6 @@
           <button @click="nextQuestion" class="interactive-btn">Siguiente</button>
         </div>
       </div>
-      <button @click="saveProgress" class="interactive-btn mt-4 w-full">Save Progress</button>
     </div>
     <div class="grid md:grid-cols-2 gap-8 mb-8">
       <div class="card">
@@ -67,7 +66,6 @@
 
 <script>
 import { gsap } from 'gsap';
-import axios from 'axios';
 
 export default {
   name: 'Restaurant',
@@ -93,6 +91,7 @@ export default {
       feedback: '',
       feedbackClass: '',
       showNextButton: false,
+      correctAnswers: 0,
     };
   },
   computed: {
@@ -106,16 +105,26 @@ export default {
         this.feedback = `¡Correcto! ${this.currentQuiz.c}`;
         this.feedbackClass = 'correct';
         this.showNextButton = true;
+        this.correctAnswers++;
       } else {
         this.feedback = 'Inténtalo de nuevo.';
         this.feedbackClass = 'incorrect';
       }
     },
     nextQuestion() {
-      this.currentQuizIndex = (this.currentQuizIndex + 1) % this.quantifierQuizzes.length;
-      this.feedback = '';
-      this.feedbackClass = '';
-      this.showNextButton = false;
+      if (this.currentQuizIndex < this.quantifierQuizzes.length - 1) {
+        this.currentQuizIndex++;
+        this.feedback = '';
+        this.feedbackClass = '';
+        this.showNextButton = false;
+      } else {
+        // All questions answered, emit quiz-completed event
+        this.$emit('quiz-completed', this.correctAnswers, {
+          section: 'restaurant',
+          totalQuestions: this.quantifierQuizzes.length,
+          correctAnswers: this.correctAnswers,
+        });
+      }
     },
     flipCard(event) {
       const card = event.currentTarget;
@@ -124,23 +133,6 @@ export default {
         duration: 0.6,
         ease: 'power2.inOut'
       });
-    },
-    async saveProgress() {
-      try {
-        const response = await axios.post('/api/progress', {
-          section_id: 'restaurant',
-          score: this.currentQuizIndex + 1, // Example score: number of quizzes completed
-          data: {
-            lastQuiz: this.currentQuiz.q,
-            lastAnswer: this.currentQuiz.a,
-          },
-        });
-        console.log('Progress saved:', response.data);
-        alert('Progress saved successfully!');
-      } catch (error) {
-        console.error('Error saving progress:', error);
-        alert('Failed to save progress.');
-      }
     },
   },
   mounted() {

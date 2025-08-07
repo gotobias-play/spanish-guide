@@ -11,6 +11,8 @@ import Restaurant from './components/Restaurant.vue';
 import Questions from './components/Questions.vue';
 import QuizHistory from './components/QuizHistory.vue';
 import AdminPanel from './components/AdminPanel.vue';
+import Dashboard from './components/Dashboard.vue';
+import QuizMain from './components/QuizMain.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -22,7 +24,9 @@ const router = createRouter({
     { path: '/restaurant', component: Restaurant },
     { path: '/questions', component: Questions },
     { path: '/quiz-history', component: QuizHistory },
+    { path: '/quizzes', component: QuizMain },
     { path: '/admin', component: AdminPanel },
+    { path: '/dashboard', component: Dashboard },
   ],
 });
 

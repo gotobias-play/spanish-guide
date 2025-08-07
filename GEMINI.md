@@ -19,13 +19,16 @@ This project is an interactive English learning application for Spanish speakers
     *   `App.vue`: The root component containing the navigation and router view, now featuring a dropdown for authenticated users.
     *   `Home.vue`: The welcome page.
     *   `Foundations.vue`: Interactive exercises for "To Be" and "To Have".
-    *   `DailyLife.vue`: The sentence builder for the present simple tense.
+    *   `DailyLife.vue`: The sentence builder for the present simple tense (now a practice area).
     *   `City.vue`: The interactive map and preposition exercises.
-    *   `Restaurant.vue`: The quantifiers quiz and food vocabulary flip cards.
+    *   `Restaurant.vue`: The quantifiers quiz and food vocabulary flip cards (now integrated as a quiz within `QuizMain.vue`).
     *   `Questions.vue`: The interactive "Wh" questions guide.
     *   `QuizHistory.vue`: Displays a user's past quiz attempts and detailed results.
     *   `AdminPanel.vue`: A basic panel for administrators to view user information.
     *   `Modal.vue`: A reusable modal component.
+    *   `Dashboard.vue`: Provides an overall progress dashboard for users.
+    *   `QuizMain.vue`: Central hub for all quizzes, including `RestaurantQuiz` and `MixedQuiz`.
+    *   `MixedQuiz.vue`: A quiz component with mixed questions from various lessons.
 *   **CSS:** `resources/css/app.css` (Contains all the custom Tailwind CSS component classes.)
 *   **Git Repository:** `https://github.com/gotobias-play/spanish-guide.git`
 
@@ -39,11 +42,17 @@ This project is an interactive English learning application for Spanish speakers
 *   **Admin Functionality:**
     *   **User Model:** Added `is_admin` boolean column.
     *   **Controller:** `AdminController.php` with `users` method to fetch all users.
-    *   **API Route:** `/api/admin/users` (GET), protected by an `admin` middleware (to be implemented or assumed).
-*   **Authentication:** Laravel Breeze reinstalled with Blade views for login/register. Login redirects to `/`.
+    *   **API Route:** `/api/admin/users` (GET), protected by the `admin` middleware.
+    *   **Middleware:** The `admin` middleware is implemented in `app/Http/Middleware/AdminMiddleware.php` and registered in `bootstrap/app.php`.
+*   **Authentication:**
+    *   Laravel Breeze reinstalled with Blade views for login/register. Login redirects to `/`.
+    *   An `/api/user` route has been added to fetch the authenticated user's data.
+    *   **Laravel Sanctum Integration:** Implemented for robust SPA authentication, including `HasApiTokens` trait on `User` model, `EnsureFrontendRequestsAreStateful` middleware, and `SANCTUM_STATEFUL_DOMAINS` configuration.
 
-### Next Steps / Pending Features
+### Frontend Enhancements
 
-*   Implement the `admin` middleware for the admin API routes.
-*   Further enhance the `QuizHistory.vue` to display quiz details more comprehensively.
-*   Consider adding an overall progress dashboard or learning recommendations.
+*   **Quiz History Display:** Enhanced `QuizHistory.vue` to display quiz details more comprehensively (questions, user answers, correct answers).
+*   **Progress Dashboard:** Added `Dashboard.vue` to provide an overall progress overview.
+*   **Centralized Quizzes:** Introduced `QuizMain.vue` as a central hub for quizzes, integrating `Restaurant.vue` (quantifiers quiz) and a new `MixedQuiz.vue` (mixed questions) within it. `DailyLife.vue` is now a dedicated practice area.
+*   **Improved UI Responsiveness:** Optimized Vue transitions and re-enabled subtle GSAP animations for smoother tab switching.
+*   **Quiz Localization:** Translated user-facing text in quiz components (`QuizMain.vue`, `Restaurant.vue`, `MixedQuiz.vue`) to Spanish for Spanish-speaking students.

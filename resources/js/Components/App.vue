@@ -9,9 +9,10 @@
           <router-link to="/city" class="nav-btn text-sm md:text-base px-3 py-2 rounded-lg">Mi Ciudad</router-link>
           <router-link to="/restaurant" class="nav-btn text-sm md:text-base px-3 py-2 rounded-lg">En el Restaurante</router-link>
           <router-link to="/questions" class="nav-btn text-sm md:text-base px-3 py-2 rounded-lg">Haciendo Preguntas</router-link>
+          <router-link to="/quizzes" class="nav-btn text-sm md:text-base px-3 py-2 rounded-lg">Quizzes</router-link>
         </div>
 
-        <div class="relative" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
+        <div class="relative pb-1" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
           <template v-if="user">
             <button class="auth-btn text-sm md:text-base px-3 py-2 rounded-lg flex items-center">
               {{ user.name }}
@@ -19,9 +20,10 @@
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
             </button>
-            <div v-if="showDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+            <div v-if="showDropdown" class="absolute right-0 w-48 bg-white rounded-md shadow-lg py-1 z-20">
               <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Account Settings</a>
               <router-link to="/quiz-history" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Quiz History</router-link>
+              <router-link to="/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</router-link>
               <router-link v-if="user.is_admin" to="/admin" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admin Panel</router-link>
               <button @click="logout" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</button>
             </div>
@@ -54,8 +56,15 @@ export default {
       showDropdown: false,
     };
   },
-  created() {
-    this.user = window.Laravel.user;
+  async mounted() {
+    try {
+      const response = await axios.get('/api/user');
+      this.user = response.data;
+      console.log('User API Response:', response.data);
+    } catch (error) {
+      console.error('Failed to fetch user:', error);
+      console.error('User API Error:', error.response);
+    }
   },
   methods: {
     async logout() {
@@ -83,7 +92,7 @@ export default {
   @apply bg-purple-600 text-white px-4 py-2 rounded-lg text-sm md:text-base font-semibold hover:bg-purple-700 transition-colors duration-200;
 }
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.1s;
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;

@@ -16,11 +16,7 @@
     </div>
 
     <Modal v-if="showDetailsModal" :title="modalTitle" @close="showDetailsModal = false">
-      <div v-if="selectedQuizDetails">
-        <div v-for="(value, key) in selectedQuizDetails" :key="key" class="mb-2">
-          <p><strong class="capitalize">{{ key.replace(/([A-Z])/g, ' $1').trim() }}:</strong> {{ value }}</p>
-        </div>
-      </div>
+      <QuizDetail v-if="selectedQuizDetails" :quiz-data="selectedQuizDetails" />
       <div v-else>No detailed data available.</div>
     </Modal>
   </div>
@@ -29,10 +25,11 @@
 <script>
 import axios from 'axios';
 import Modal from './Modal.vue';
+import QuizDetail from './QuizDetail.vue';
 
 export default {
   name: 'QuizHistory',
-  components: { Modal },
+  components: { Modal, QuizDetail },
   data() {
     return {
       progress: [],
