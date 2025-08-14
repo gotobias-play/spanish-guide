@@ -4,25 +4,38 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "test": "vitest",
+        "test:ui": "vitest --ui",
+        "cypress:open": "cypress open",
+        "cypress:run": "cypress run",
+        "e2e": "cypress run --spec cypress/e2e/**/*.cy.js",
+        "e2e:open": "cypress open --e2e"
     },
     "devDependencies": {
         "@inertiajs/vue3": "^2.0.0",
         "@tailwindcss/forms": "^0.5.2",
         "@tailwindcss/vite": "^4.0.0",
         "@vitejs/plugin-vue": "^5.0.0",
+        "@vitest/ui": "^3.2.4",
+        "@vue/test-utils": "^2.4.6",
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.2",
         "axios": "^1.8.2",
         "concurrently": "^9.0.1",
+        "happy-dom": "^18.0.1",
+        "jsdom": "^26.1.0",
         "laravel-vite-plugin": "^2.0.0",
         "postcss": "^8.4.31",
         "tailwindcss": "^3.1.0",
+        "terser": "^5.43.1",
         "vite": "^7.0.4",
+        "vitest": "^3.2.4",
         "vue": "^3.4.0"
     },
     "dependencies": {
         "gsap": "^3.13.0",
+        "vue-i18n": "^9.14.5",
         "vue-router": "^4.5.1"
     }
 }

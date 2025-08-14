@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "title": "Basic English Grammar",
+    "description": "Learn fundamental grammar concepts including verb tenses, sentence structure, and basic grammatical rules.",
+    "is_published": true,
+    "created_at": "2025-08-10T10:00:00Z",
+    "updated_at": "2025-08-10T10:00:00Z",
+    "lessons": [
+      {
+        "id": 1,
+        "title": "Present Tense",
+        "course_id": 1,
+        "order": 1,
+        "is_published": true
+      },
+      {
+        "id": 2,
+        "title": "Past Tense",
+        "course_id": 1,
+        "order": 2,
+        "is_published": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "English for Daily Life",
+    "description": "Practical English for everyday situations including greetings, shopping, and social interactions.",
+    "is_published": true,
+    "created_at": "2025-08-10T11:00:00Z",
+    "updated_at": "2025-08-10T11:00:00Z",
+    "lessons": [
+      {
+        "id": 3,
+        "title": "Greetings and Introductions",
+        "course_id": 2,
+        "order": 1,
+        "is_published": true
+      },
+      {
+        "id": 4,
+        "title": "At the Store",
+        "course_id": 2,
+        "order": 2,
+        "is_published": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Business English",
+    "description": "Professional English for workplace communication, meetings, and business correspondence.",
+    "is_published": true,
+    "created_at": "2025-08-10T12:00:00Z",
+    "updated_at": "2025-08-10T12:00:00Z",
+    "lessons": [
+      {
+        "id": 5,
+        "title": "Meeting Vocabulary",
+        "course_id": 3,
+        "order": 1,
+        "is_published": true
+      }
+    ]
+  }
+]

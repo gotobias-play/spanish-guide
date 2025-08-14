@@ -1,0 +1,133 @@
+[
+  {
+    "id": 1,
+    "title": "Present Tense Quiz",
+    "lesson_id": 1,
+    "is_timed": false,
+    "created_at": "2025-08-10T10:30:00Z",
+    "updated_at": "2025-08-10T10:30:00Z",
+    "questions": [
+      {
+        "id": 1,
+        "quiz_id": 1,
+        "question_text": "What is the correct present tense form of 'to be' for 'I'?",
+        "question_type": "multiple_choice",
+        "created_at": "2025-08-10T10:35:00Z",
+        "updated_at": "2025-08-10T10:35:00Z",
+        "options": [
+          {
+            "id": 1,
+            "question_id": 1,
+            "option_text": "am",
+            "is_correct": true
+          },
+          {
+            "id": 2,
+            "question_id": 1,
+            "option_text": "is",
+            "is_correct": false
+          },
+          {
+            "id": 3,
+            "question_id": 1,
+            "option_text": "are",
+            "is_correct": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "quiz_id": 1,
+        "question_text": "She _____ a teacher.",
+        "question_type": "fill_in_the_blank",
+        "created_at": "2025-08-10T10:40:00Z",
+        "updated_at": "2025-08-10T10:40:00Z",
+        "options": [
+          {
+            "id": 4,
+            "question_id": 2,
+            "option_text": "is",
+            "is_correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Past Tense Quiz",
+    "lesson_id": 2,
+    "is_timed": true,
+    "time_limit_seconds": 120,
+    "created_at": "2025-08-10T11:30:00Z",
+    "updated_at": "2025-08-10T11:30:00Z",
+    "questions": [
+      {
+        "id": 3,
+        "quiz_id": 2,
+        "question_text": "What is the past tense of 'go'?",
+        "question_type": "multiple_choice",
+        "created_at": "2025-08-10T11:35:00Z",
+        "updated_at": "2025-08-10T11:35:00Z",
+        "options": [
+          {
+            "id": 5,
+            "question_id": 3,
+            "option_text": "went",
+            "is_correct": true
+          },
+          {
+            "id": 6,
+            "question_id": 3,
+            "option_text": "goed",
+            "is_correct": false
+          },
+          {
+            "id": 7,
+            "question_id": 3,
+            "option_text": "going",
+            "is_correct": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Daily Life Vocabulary",
+    "lesson_id": 3,
+    "is_timed": false,
+    "created_at": "2025-08-10T12:30:00Z",
+    "updated_at": "2025-08-10T12:30:00Z",
+    "questions": [
+      {
+        "id": 4,
+        "quiz_id": 3,
+        "question_text": "How do you greet someone in the morning?",
+        "question_type": "multiple_choice",
+        "created_at": "2025-08-10T12:35:00Z",
+        "updated_at": "2025-08-10T12:35:00Z",
+        "options": [
+          {
+            "id": 8,
+            "question_id": 4,
+            "option_text": "Good morning",
+            "is_correct": true
+          },
+          {
+            "id": 9,
+            "question_id": 4,
+            "option_text": "Good night",
+            "is_correct": false
+          },
+          {
+            "id": 10,
+            "question_id": 4,
+            "option_text": "Good afternoon",
+            "is_correct": false
+          }
+        ]
+      }
+    ]
+  }
+]

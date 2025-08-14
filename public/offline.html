@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin Conexión - Spanish English Learning App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .offline-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .offline-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .offline-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        .offline-subtitle {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .offline-description {
+            font-size: 16px;
+            color: #718096;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .offline-features {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .offline-features h3 {
+            font-size: 18px;
+            color: #2d3748;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #4a5568;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+        
+        .retry-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 20px;
+        }
+        
+        .retry-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .retry-button:active {
+            transform: translateY(0);
+        }
+        
+        .connection-status {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 15px;
+        }
+        
+        .status-offline {
+            background: #fed7d7;
+            color: #c53030;
+        }
+        
+        .status-online {
+            background: #c6f6d5;
+            color: #2f855a;
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .indicator-offline {
+            background: #e53e3e;
+        }
+        
+        .indicator-online {
+            background: #38a169;
+        }
+        
+        .app-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .loading {
+            animation: pulse 2s infinite;
+        }
+        
+        @media (max-width: 480px) {
+            .offline-container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            
+            .offline-icon {
+                font-size: 60px;
+            }
+            
+            .offline-title {
+                font-size: 24px;
+            }
+            
+            .offline-subtitle {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="app-logo">📚</div>
+        
+        <div class="offline-icon">📡</div>
+        
+        <h1 class="offline-title">Sin Conexión a Internet</h1>
+        <p class="offline-subtitle">No tienes conexión a internet en este momento</p>
+        
+        <p class="offline-description">
+            No te preocupes, algunas funciones de la app están disponibles sin conexión. 
+            Cuando recuperes la conexión, tus datos se sincronizarán automáticamente.
+        </p>
+        
+        <div class="offline-features">
+            <h3>📱 Disponible Sin Conexión</h3>
+            <ul class="feature-list">
+                <li>Quizzes descargados previamente</li>
+                <li>Lecciones de vocabulario guardadas</li>
+                <li>Práctica de pronunciación local</li>
+                <li>Progreso almacenado temporalmente</li>
+                <li>Contenido multimedia descargado</li>
+            </ul>
+        </div>
+        
+        <button class="retry-button" onclick="checkConnection()">
+            🔄 Verificar Conexión
+        </button>
+        
+        <div class="connection-status status-offline" id="connectionStatus">
+            <span class="status-indicator indicator-offline"></span>
+            Sin conexión
+        </div>
+    </div>
+
+    <script>
+        let isOnline = navigator.onLine;
+        
+        function updateConnectionStatus() {
+            const statusElement = document.getElementById('connectionStatus');
+            const retryButton = document.querySelector('.retry-button');
+            
+            if (navigator.onLine) {
+                statusElement.className = 'connection-status status-online';
+                statusElement.innerHTML = '<span class="status-indicator indicator-online"></span>Conectado';
+                retryButton.textContent = '🏠 Ir a la App';
+                retryButton.onclick = () => window.location.href = '/';
+            } else {
+                statusElement.className = 'connection-status status-offline';
+                statusElement.innerHTML = '<span class="status-indicator indicator-offline"></span>Sin conexión';
+                retryButton.textContent = '🔄 Verificar Conexión';
+                retryButton.onclick = checkConnection;
+            }
+        }
+        
+        function checkConnection() {
+            const button = document.querySelector('.retry-button');
+            button.classList.add('loading');
+            button.textContent = '🔄 Verificando...';
+            button.disabled = true;
+            
+            // Simulate checking connection
+            setTimeout(() => {
+                if (navigator.onLine) {
+                    // Try to fetch a small resource to verify actual connectivity
+                    fetch('/', { method: 'HEAD', cache: 'no-cache' })
+                        .then(() => {
+                            window.location.href = '/';
+                        })
+                        .catch(() => {
+                            button.classList.remove('loading');
+                            button.disabled = false;
+                            updateConnectionStatus();
+                        });
+                } else {
+                    button.classList.remove('loading');
+                    button.disabled = false;
+                    updateConnectionStatus();
+                }
+            }, 1500);
+        }
+        
+        // Listen for online/offline events
+        window.addEventListener('online', () => {
+            console.log('Connection restored');
+            updateConnectionStatus();
+            
+            // Show notification that connection is restored
+            if ('serviceWorker' in navigator && 'Notification' in window) {
+                navigator.serviceWorker.ready.then((registration) => {
+                    registration.showNotification('¡Conexión Restaurada!', {
+                        body: 'Ya puedes acceder a todas las funciones de la app',
+                        icon: '/images/icon-192x192.png',
+                        badge: '/images/badge-72x72.png',
+                        tag: 'connection-restored',
+                        requireInteraction: false,
+                        actions: [
+                            {
+                                action: 'open-app',
+                                title: 'Abrir App'
+                            }
+                        ]
+                    });
+                });
+            }
+        });
+        
+        window.addEventListener('offline', () => {
+            console.log('Connection lost');
+            updateConnectionStatus();
+        });
+        
+        // Initialize connection status
+        updateConnectionStatus();
+        
+        // Periodically check connection
+        setInterval(() => {
+            updateConnectionStatus();
+        }, 5000);
+        
+        // Handle service worker messages
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.addEventListener('message', (event) => {
+                if (event.data && event.data.type === 'CONNECTION_STATUS') {
+                    updateConnectionStatus();
+                }
+            });
+        }
+        
+        // Add keyboard navigation
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                const button = document.querySelector('.retry-button');
+                if (button && !button.disabled) {
+                    button.click();
+                }
+            }
+            
+            if (event.key === 'Escape') {
+                if (navigator.onLine) {
+                    window.location.href = '/';
+                }
+            }
+        });
+        
+        // Prevent form submission on offline page
+        document.addEventListener('submit', (event) => {
+            event.preventDefault();
+            checkConnection();
+        });
+        
+        console.log('Offline page loaded. Connection status:', navigator.onLine);
+    </script>
+</body>
+</html>

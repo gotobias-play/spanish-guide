@@ -1,0 +1,179 @@
+{
+  "name": "Spanish English Learning App",
+  "short_name": "EnglishLearning",
+  "description": "Aprende inglés de forma interactiva con multimedia, IA, competencias en vivo y práctica de conversación",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es-ES",
+  "dir": "ltr",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/images/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Práctica Rápida",
+      "short_name": "Quiz",
+      "description": "Realizar un quiz de aprendizaje rápido",
+      "url": "/quiz-selector",
+      "icons": [
+        {
+          "src": "/images/shortcut-quiz.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Pronunciación",
+      "short_name": "Pronunciar",
+      "description": "Practicar pronunciación con IA",
+      "url": "/pronunciation-practice",
+      "icons": [
+        {
+          "src": "/images/shortcut-pronunciation.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Videos",
+      "short_name": "Videos",
+      "description": "Lecciones en video interactivas",
+      "url": "/video-lessons",
+      "icons": [
+        {
+          "src": "/images/shortcut-video.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Conversación",
+      "short_name": "Conversar",
+      "description": "Práctica de conversación con IA",
+      "url": "/conversation-practice",
+      "icons": [
+        {
+          "src": "/images/shortcut-conversation.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Chat en Vivo",
+      "short_name": "Chat",
+      "description": "Conectar con otros estudiantes",
+      "url": "/chat",
+      "icons": [
+        {
+          "src": "/images/shortcut-chat.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Mi Progreso",
+      "short_name": "Progreso",
+      "description": "Ver progreso y logros de aprendizaje",
+      "url": "/gamification",
+      "icons": [
+        {
+          "src": "/images/shortcut-progress.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-mobile-1.png",
+      "sizes": "640x1136",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Quiz interface on mobile"
+    },
+    {
+      "src": "/images/screenshot-mobile-2.png",
+      "sizes": "640x1136",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Multiplayer competition on mobile"
+    },
+    {
+      "src": "/images/screenshot-desktop-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Learning dashboard on desktop"
+    }
+  ],
+  "features": [
+    "offline-mode",
+    "real-time-chat",
+    "multiplayer-competitions",
+    "adaptive-learning",
+    "push-notifications",
+    "voice-recording",
+    "video-lessons",
+    "ai-conversation",
+    "pronunciation-analysis",
+    "progress-tracking"
+  ]
+}
